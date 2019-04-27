@@ -3,15 +3,18 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Migrations;
+using Microsoft.EntityFrameworkCore.Storage;
+using Microsoft.EntityFrameworkCore.Storage.Internal;
 using SimpleAnswerForum.Data;
 using System;
 
 namespace SimpleAnswerForum.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20190427144645_Remove-Unused-Columns")]
+    partial class RemoveUnusedColumns
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -169,9 +172,11 @@ namespace SimpleAnswerForum.Migrations
                     b.Property<bool>("EmailConfirmed");
 
                     b.Property<string>("FirstName")
+                        .IsRequired()
                         .HasMaxLength(32);
 
                     b.Property<string>("LastName")
+                        .IsRequired()
                         .HasMaxLength(32);
 
                     b.Property<bool>("LockoutEnabled");
@@ -220,8 +225,7 @@ namespace SimpleAnswerForum.Migrations
 
                     b.HasKey("AnswerId", "ApplicationUserId");
 
-                    b.HasIndex("ApplicationUserId", "AnswerId")
-                        .IsUnique();
+                    b.HasIndex("ApplicationUserId");
 
                     b.ToTable("DownvoteAnswer");
                 });
@@ -234,8 +238,7 @@ namespace SimpleAnswerForum.Migrations
 
                     b.HasKey("QuestionId", "ApplicationUserId");
 
-                    b.HasIndex("ApplicationUserId", "QuestionId")
-                        .IsUnique();
+                    b.HasIndex("ApplicationUserId");
 
                     b.ToTable("DownvoteQuestion");
                 });
@@ -284,9 +287,6 @@ namespace SimpleAnswerForum.Migrations
 
                     b.HasIndex("QuestionId");
 
-                    b.HasIndex("TopicId", "QuestionId")
-                        .IsUnique();
-
                     b.ToTable("TopicQuestion");
                 });
 
@@ -298,8 +298,7 @@ namespace SimpleAnswerForum.Migrations
 
                     b.HasKey("AnswerId", "ApplicationUserId");
 
-                    b.HasIndex("ApplicationUserId", "AnswerId")
-                        .IsUnique();
+                    b.HasIndex("ApplicationUserId");
 
                     b.ToTable("UpvoteAnswer");
                 });
@@ -312,8 +311,7 @@ namespace SimpleAnswerForum.Migrations
 
                     b.HasKey("QuestionId", "ApplicationUserId");
 
-                    b.HasIndex("ApplicationUserId", "QuestionId")
-                        .IsUnique();
+                    b.HasIndex("ApplicationUserId");
 
                     b.ToTable("UpvoteQuestion");
                 });

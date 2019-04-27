@@ -7,8 +7,6 @@ namespace SimpleAnswerForum.Data.Models
 {
     public class UpvoteQuestion
     {
-        public long Id { get; set; }
-
         public long QuestionId { get; set; }
         public Question Question { get; set; }
 

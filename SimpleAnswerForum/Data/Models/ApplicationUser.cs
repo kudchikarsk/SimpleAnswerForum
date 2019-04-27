@@ -11,10 +11,8 @@ namespace SimpleAnswerForum.Data.Models
     public class ApplicationUser : IdentityUser
     {
         [MaxLength(32)]
-        [Required]
         public string FirstName { get; set; }
         [MaxLength(32)]
-        [Required]
         public string LastName { get; set; }
         [MaxLength(128)]
         public string Credentials { get; set; }

@@ -11,11 +11,6 @@ namespace SimpleAnswerForum.Data
 {
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
     {
-        public ApplicationUser ApplicationUsers { get; set; }
-        public Question Questions { get; set; }
-        public Answer Answers { get; set; }
-        public Topic Topics { get; set; }
-
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
             : base(options)
         {
@@ -28,10 +23,14 @@ namespace SimpleAnswerForum.Data
             // For example, you can rename the ASP.NET Identity table names and more.
             // Add your customizations after calling base.OnModelCreating(builder);
 
-           
+
             //Topic Question
             builder.Entity<TopicQuestion>()
             .HasKey(bc => new { bc.TopicId, bc.QuestionId });
+
+            builder.Entity<TopicQuestion>()
+                .HasIndex(tq => new { tq.TopicId, tq.QuestionId })
+                .IsUnique();
 
             builder.Entity<TopicQuestion>()
                 .HasOne(tq => tq.Topic)
@@ -52,6 +51,10 @@ namespace SimpleAnswerForum.Data
            .HasKey(uq => new { uq.QuestionId, uq.ApplicationUserId });
 
             builder.Entity<UpvoteQuestion>()
+                .HasIndex(uq => new { uq.ApplicationUserId, uq.QuestionId })
+                .IsUnique();
+
+            builder.Entity<UpvoteQuestion>()
                 .HasOne(uq => uq.Question)
                 .WithMany(q => q.UpvoteQuestions)
                 .HasForeignKey(uq => uq.QuestionId)
@@ -68,6 +71,10 @@ namespace SimpleAnswerForum.Data
             //Downvote Question
             builder.Entity<DownvoteQuestion>()
            .HasKey(dq => new { dq.QuestionId, dq.ApplicationUserId });
+
+            builder.Entity<DownvoteQuestion>()
+                .HasIndex(dq => new { dq.ApplicationUserId, dq.QuestionId })
+                .IsUnique();
 
             builder.Entity<DownvoteQuestion>()
                 .HasOne(dq => dq.Question)
@@ -89,6 +96,10 @@ namespace SimpleAnswerForum.Data
            .HasKey(ua => new { ua.AnswerId, ua.ApplicationUserId });
 
             builder.Entity<UpvoteAnswer>()
+                .HasIndex(ua => new { ua.ApplicationUserId, ua.AnswerId })
+                .IsUnique();
+
+            builder.Entity<UpvoteAnswer>()
                 .HasOne(ua => ua.Answer)
                 .WithMany(a => a.UpvoteAnswers)
                 .HasForeignKey(uq => uq.AnswerId)
@@ -107,6 +118,10 @@ namespace SimpleAnswerForum.Data
            .HasKey(dq => new { dq.AnswerId, dq.ApplicationUserId });
 
             builder.Entity<DownvoteAnswer>()
+                .HasIndex(da => new { da.ApplicationUserId, da.AnswerId })
+                .IsUnique();
+
+            builder.Entity<DownvoteAnswer>()
                 .HasOne(dq => dq.Answer)
                 .WithMany(q => q.DownvoteAnswers)
                 .HasForeignKey(dq => dq.AnswerId)
@@ -120,5 +135,21 @@ namespace SimpleAnswerForum.Data
                 .IsRequired()
                 .OnDelete(DeleteBehavior.Cascade);
         }
+
+        public DbSet<SimpleAnswerForum.Data.Models.ApplicationUser> ApplicationUser { get; set; }
+
+        public DbSet<SimpleAnswerForum.Data.Models.Question> Question { get; set; }
+
+        public DbSet<SimpleAnswerForum.Data.Models.Answer> Answer { get; set; }
+
+        public DbSet<SimpleAnswerForum.Data.Models.UpvoteQuestion> UpvoteQuestion { get; set; }
+
+        public DbSet<SimpleAnswerForum.Data.Models.DownvoteQuestion> DownvoteQuestion { get; set; }
+
+        public DbSet<SimpleAnswerForum.Data.Models.UpvoteAnswer> UpvoteAnswer { get; set; }
+
+        public DbSet<SimpleAnswerForum.Data.Models.DownvoteAnswer> DownvoteAnswer { get; set; }
+
+        public DbSet<SimpleAnswerForum.Data.Models.Topic> Topic { get; set; }
     }
 }

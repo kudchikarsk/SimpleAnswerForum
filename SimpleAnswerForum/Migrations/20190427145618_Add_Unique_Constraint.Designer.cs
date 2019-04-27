@@ -3,15 +3,18 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Migrations;
+using Microsoft.EntityFrameworkCore.Storage;
+using Microsoft.EntityFrameworkCore.Storage.Internal;
 using SimpleAnswerForum.Data;
 using System;
 
 namespace SimpleAnswerForum.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20190427145618_Add_Unique_Constraint")]
+    partial class Add_Unique_Constraint
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -169,9 +172,11 @@ namespace SimpleAnswerForum.Migrations
                     b.Property<bool>("EmailConfirmed");
 
                     b.Property<string>("FirstName")
+                        .IsRequired()
                         .HasMaxLength(32);
 
                     b.Property<string>("LastName")
+                        .IsRequired()
                         .HasMaxLength(32);
 
                     b.Property<bool>("LockoutEnabled");
