@@ -5,6 +5,23 @@
     <UserSecretsId>aspnet-SimpleAnswerForum-6E1EE015-D81A-4F43-9C77-AE2091D95365</UserSecretsId>
   </PropertyGroup>
 
+  <ItemGroup>
+    <Compile Remove="Migrations\20190427132412_Initial_Create.cs" />
+    <Compile Remove="Migrations\20190427132412_Initial_Create.Designer.cs" />
+    <Compile Remove="Migrations\20190427132919_Initial_Create.cs" />
+    <Compile Remove="Migrations\20190427132919_Initial_Create.Designer.cs" />
+    <Compile Remove="Migrations\20190427133522_Initial_Create.cs" />
+    <Compile Remove="Migrations\20190427133522_Initial_Create.Designer.cs" />
+    <Compile Remove="Migrations\20190427135204_Initial_Create.cs" />
+    <Compile Remove="Migrations\20190427135204_Initial_Create.Designer.cs" />
+    <Compile Remove="Migrations\20190427142523_something.cs" />
+    <Compile Remove="Migrations\20190427142523_something.Designer.cs" />
+    <Compile Remove="Migrations\20190427142637_something.cs" />
+    <Compile Remove="Migrations\20190427142637_something.Designer.cs" />
+    <Compile Remove="Migrations\20190427143216_something.cs" />
+    <Compile Remove="Migrations\20190427143216_something.Designer.cs" />
+  </ItemGroup>
+
 
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.All" Version="2.0.6" />

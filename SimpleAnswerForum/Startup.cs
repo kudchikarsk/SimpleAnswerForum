@@ -11,6 +11,7 @@ using Microsoft.Extensions.DependencyInjection;
 using SimpleAnswerForum.Data;
 using SimpleAnswerForum.Models;
 using SimpleAnswerForum.Services;
+using SimpleAnswerForum.Data.Models;
 
 namespace SimpleAnswerForum
 {

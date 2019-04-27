@@ -10,6 +10,7 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
+using SimpleAnswerForum.Data.Models;
 using SimpleAnswerForum.Models;
 using SimpleAnswerForum.Models.ManageViewModels;
 using SimpleAnswerForum.Services;
