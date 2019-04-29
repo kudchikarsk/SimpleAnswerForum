@@ -15,6 +15,5 @@ namespace SimpleAnswerForum.Models.ForumViewModels
 
         public long UpvotesCount { get; set; }
         public long DownvotesCount { get; set; }
-
     }
 }
