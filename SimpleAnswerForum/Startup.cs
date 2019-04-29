@@ -12,6 +12,8 @@ using SimpleAnswerForum.Data;
 using SimpleAnswerForum.Models;
 using SimpleAnswerForum.Services;
 using SimpleAnswerForum.Data.Models;
+using SimpleAnswerForum.Data.Repositories.Interfaces;
+using SimpleAnswerForum.Data.Repositories;
 
 namespace SimpleAnswerForum
 {
@@ -36,6 +38,7 @@ namespace SimpleAnswerForum
 
             // Add application services.
             services.AddTransient<IEmailSender, EmailSender>();
+            services.AddScoped<IAnswerRepository, AnswerRepository>();
 
             services.AddMvc();
         }

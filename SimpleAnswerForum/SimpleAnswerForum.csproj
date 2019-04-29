@@ -1,35 +1,30 @@
 <Project Sdk="Microsoft.NET.Sdk.Web">
 
   <PropertyGroup>
-    <TargetFramework>netcoreapp2.0</TargetFramework>
+    <TargetFramework>netcoreapp2.2</TargetFramework>
     <UserSecretsId>aspnet-SimpleAnswerForum-6E1EE015-D81A-4F43-9C77-AE2091D95365</UserSecretsId>
+    <EnableDefaultContentItems>false</EnableDefaultContentItems>
+    <PreserveCompilationContext>true</PreserveCompilationContext>
   </PropertyGroup>
 
   <ItemGroup>
-    <Compile Remove="Migrations\20190427132412_Initial_Create.cs" />
-    <Compile Remove="Migrations\20190427132412_Initial_Create.Designer.cs" />
-    <Compile Remove="Migrations\20190427132919_Initial_Create.cs" />
-    <Compile Remove="Migrations\20190427132919_Initial_Create.Designer.cs" />
-    <Compile Remove="Migrations\20190427133522_Initial_Create.cs" />
-    <Compile Remove="Migrations\20190427133522_Initial_Create.Designer.cs" />
-    <Compile Remove="Migrations\20190427135204_Initial_Create.cs" />
-    <Compile Remove="Migrations\20190427135204_Initial_Create.Designer.cs" />
-    <Compile Remove="Migrations\20190427142523_something.cs" />
-    <Compile Remove="Migrations\20190427142523_something.Designer.cs" />
-    <Compile Remove="Migrations\20190427142637_something.cs" />
-    <Compile Remove="Migrations\20190427142637_something.Designer.cs" />
-    <Compile Remove="Migrations\20190427143216_something.cs" />
-    <Compile Remove="Migrations\20190427143216_something.Designer.cs" />
-    <Compile Remove="Migrations\20190427144950_ssssss.cs" />
-    <Compile Remove="Migrations\20190427144950_ssssss.Designer.cs" />
-    <Compile Remove="Migrations\20190427151115_ssssssss.cs" />
-    <Compile Remove="Migrations\20190427151115_ssssssss.Designer.cs" />
+    <Compile Remove="Migrations\20190429141717_Add-DateTime-For-Answer.cs" />
+    <Compile Remove="Migrations\20190429141717_Add-DateTime-For-Answer.Designer.cs" />
+    <Compile Remove="Migrations\20190429142113_Add-DateTime-For-Answer.cs" />
+    <Compile Remove="Migrations\20190429142113_Add-DateTime-For-Answer.Designer.cs" />
+    <Compile Remove="Migrations\20190429142245_Add-DateTime-For-Answer.cs" />
+    <Compile Remove="Migrations\20190429142245_Add-DateTime-For-Answer.Designer.cs" />
+    <Compile Remove="Migrations\20190429142529_Add-DateTime-For-Answer.cs" />
+    <Compile Remove="Migrations\20190429142529_Add-DateTime-For-Answer.Designer.cs" />
   </ItemGroup>
 
 
+
   <ItemGroup>
-    <PackageReference Include="Microsoft.AspNetCore.All" Version="2.0.9" />
+    <PackageReference Include="Microsoft.AspNetCore.All" Version="2.2.4" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="2.2.4" PrivateAssets="All" />
+    <PackageReference Include="Microsoft.NET.Sdk.Publish" Version="1.0.0-alpha-20161104-2-112" />
+    <PackageReference Include="Microsoft.NET.Sdk.Web" Version="1.0.0-alpha-20161104-2-112" />
     <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="2.2.3" PrivateAssets="All" />
   </ItemGroup>
 

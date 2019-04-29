@@ -23,6 +23,7 @@ namespace SimpleAnswerForum.Data
             // For example, you can rename the ASP.NET Identity table names and more.
             // Add your customizations after calling base.OnModelCreating(builder);
 
+            
 
             //Topic Question
             builder.Entity<TopicQuestion>()
@@ -134,6 +135,14 @@ namespace SimpleAnswerForum.Data
                 .HasForeignKey(dq => dq.ApplicationUserId)
                 .IsRequired()
                 .OnDelete(DeleteBehavior.Cascade);
+
+            builder.Entity<Answer>()
+            .Property(b => b.CreatedAt)
+            .HasDefaultValueSql("getdate()");
+
+            builder.Entity<Answer>()
+            .Property(b => b.ModifiedAt)
+            .HasDefaultValueSql("getdate()");
         }
 
         public DbSet<SimpleAnswerForum.Data.Models.ApplicationUser> ApplicationUser { get; set; }
